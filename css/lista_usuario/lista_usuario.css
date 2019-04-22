@@ -1,0 +1,87 @@
+body, html {
+    overflow-y: hidden;
+}
+
+section.form-style {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-self: center;
+    position: absolute;
+    top: 120px;
+    left: 150px;
+    width: calc(100% - 150px);
+    height: 100%;
+}
+
+section.form-style>.title {
+    margin-bottom: 0;
+}
+
+div.scroll {
+    overflow-y: auto;
+    width: 100%;
+    height: 75%;
+    padding: 20px;
+}
+
+
+
+.lista table {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    padding-bottom: 70px;
+    overflow: auto;
+}
+
+.lista table tr {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.lista td, th {
+    padding: 5px;
+    text-align: center;
+}
+
+.lista td {
+  height: 35px;
+}
+
+.lista th {
+    color: #fff;
+    background-color: #2d1008;
+    border-radius: 3px;
+
+}
+
+.mensagem {
+    width: 60px;]
+}
+
+.mensagem > a > i{
+    color: #2d1008;
+    font-size: 18px;
+}
+
+
+
+@media screen and (max-width: 790px) {
+    section.form-style {
+        width: calc(100% - 60px);
+        left: 60px;
+        top: 180px;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    div.title input {
+        width: 70%;
+    }
+}

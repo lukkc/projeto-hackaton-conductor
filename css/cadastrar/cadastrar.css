@@ -1,0 +1,40 @@
+section.form-cadastrar {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-self: center;
+    position: absolute;
+    top: 100px;
+    width: calc(100% - 150px);
+}
+
+section.form-cadastrar>form {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    section.form-cadastrar {
+        width: calc(100% - 60px);
+    }
+}
+
+@media screen and (max-width: 490px) {
+    section.form-cadastrar {
+        top: 150px;
+    }
+}

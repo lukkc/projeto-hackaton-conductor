@@ -1,0 +1,138 @@
+header.cabecalho {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    position: absolute;
+    width: 100%;
+    height: 45px;
+    padding: 0 20px;
+    background-color: #2d1008;
+}
+
+header.cabecalho>.logotipo {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    width: 25%;
+}
+
+header.cabecalho>.logotipo>h1 {
+    color:  #ebebeb;
+}
+
+header.cabecalho>.logotipo img {
+    width: 60px;
+    margin-right: 10px;
+}
+
+header.cabecalho>.usuario-logado {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    justify-content: flex-end;
+    -webkit-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    width: 45%;
+}
+
+header.cabecalho>.usuario-logado>h2 {
+  font-size: 15px;
+}
+
+header.cabecalho>.usuario-logado>h2:nth-child(1) {
+    color:  #ebebeb;
+}
+
+header.cabecalho>.usuario-logado>h2:nth-child(2) {
+    color: #9ED22F;
+}
+
+header.cabecalho>.div-btns {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    justify-content: flex-end;
+    -webkit-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    width: 30%;
+
+}
+
+header.cabecalho>.div-btns >.btn-sair,
+header.cabecalho>.div-btns > ul{
+    display: block;
+    min-width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px outset  #ebebeb;
+    float: right;
+    background-color: #2d1008;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    font-size: 13px;
+    line-height: 28px;
+    margin-left: 5px;
+}
+
+header.cabecalho>.div-btns > ul{
+  width: 100px;
+}
+
+header.cabecalho>.div-btns > ul > li{
+  display: none;
+  padding: 4px;
+  margin-top: 1px;
+  background-color: #2d1008;
+  color: #fff;
+}
+
+header.cabecalho>.div-btns > ul:hover li{
+  display: block;
+}
+
+header.cabecalho>.div-btns > ul > a{
+  color: #fff;
+}
+
+@media screen and (max-width: 999px){
+  header.cabecalho {
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 790px){
+  header.cabecalho {
+    height: 110px;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    padding-top: 5px;
+  }
+  header.cabecalho>.logotipo,
+  header.cabecalho>.usuario-logado {
+    width: 100%;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    margin-bottom: 8px;
+  }
+
+
+  header.cabecalho>.div-btns{
+    width: 100%;
+    align-self: flex-end;
+    padding-right: 0;
+    margin-bottom: 8px;
+  }
+}

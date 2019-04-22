@@ -1,0 +1,95 @@
+header.cabecalho {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    position: absolute;
+    width: 100%;
+    height: 45px;
+    padding: 0 20px;
+    background-color: #2d1008;
+}
+
+header.cabecalho>.logotipo {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    width: 55%;
+}
+
+header.cabecalho>.logotipo>h1 {
+    color: #ebebeb;
+}
+
+header.cabecalho>.logotipo img {
+    width: 60px;
+    margin-right: 10px;
+}
+
+header.cabecalho>.div-btn {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    justify-content: flex-end;
+    -webkit-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    width: 45%;
+    padding-right: 20px;
+}
+
+header.cabecalho>.div-btn>.btn-cadastro {
+    display: block;
+    width: 90px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px outset #ebebeb;
+    float: right;
+    background-color: #2d1008;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    font-size: 13px;
+    line-height: 28px;
+}
+
+@media screen and (max-width: 999px) {
+    header.cabecalho {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header.cabecalho>.logotipo {
+        width: 40%;
+    }
+    header.cabecalho>.div-btn-sair {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    header.cabecalho {
+        height: 110px;
+        flex-direction: column;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+    }
+    header.cabecalho>.logotipo, header.cabecalho>.usuario-logado {
+        width: 100%;
+        justify-content: center;
+        -webkit-justify-content: center;
+        -ms-justify-content: center;
+        margin-bottom: 8px;
+    }
+    header.cabecalho>.div-btn {
+        width: 100%;
+        align-self: flex-end;
+        padding-right: 0;
+        margin-bottom: 8px;
+    }
+}

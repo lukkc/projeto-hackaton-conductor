@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ARG</title>
+
+    <link rel="icon" href="img/logoV.png" type="image/x-icon" />
+    <!-- FOLHA DE ESTILO PARA A SESSÃO DE FORMULÁRIO DE CADASTRO -->
+    <link rel="stylesheet" href="css/cadastrar/cadastrar.css">
+    <!-- FOLHA DE ESTILO PARA O CABEÇALHO -->
+    <link rel="stylesheet" href="css/cadastrar/header_cadastrar.css">
+    <!-- FOLHA DE ESTILO PARA ESTILOS COMPARTILHADOS -->
+    <link rel="stylesheet" href="css/style-geral.css">
+    <!-- FOLHA DE ESTILO PARA ICONES -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+    <!-- INICIO DO CABEÇALHO DA APLICAÇÃO -->
+    <header class="cabecalho">
+        <div class="logotipo">
+            <img src="img/logoC.png" alt="">
+            <h1>ARG</h1>
+        </div>
+        <div class="div-btn">
+            <a href="#" class="btn-entrar">Entrar&nbsp;&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></a>
+        </div>
+    </header>
+    <!-- FIM DO CABEÇALHO DA APLICAÇÃO -->
+
+
+    <!-- INICIO DA SESSÃO DE FORMULÁRIO DE CADASTRO DE USUÁRIO -->
+    <section class="form-cadastrar">
+
+        <!-- TITULO DO FORMULÁRIO -->
+        <div class="title">
+            <h3>Cadastrar</h3>
+        </div>
+
+        <form id="form" class="" action="" method="post">
+            <div class="group-input2">
+                <div class="group-input">
+                    <span class="icon-input"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <label for="Nome">Nome completo</label>
+                    <input type="text" name="nome" value="" maxlength="30">
+                </div>
+
+                <div class="group-input">
+                    <span class="icon-input"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
+                    <label for="CPF">CPF</label>
+                    <input type="text" name="cpf" value="" maxlength="14">
+                </div>
+
+
+                <div class="group-input">
+                    <span class="icon-input"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                    <label for="Email">E-mail</label>
+                    <input type="email" name="email" value="" maxlength="60">
+                </div>
+
+                <div class="group-input">
+                    <span class="icon-input"><i class="fa fa-key" aria-hidden="true"></i></span>
+                    <label for="Senha">Senha</label>
+                    <input type="text" name="senha" value="" maxlength="30">
+                </div>
+
+            </div>
+            <div class="group-button">
+                <button id="btn-cadastrar" class="btn-submit" type="button" name="cadastrar">Cadastrar</button>
+            </div>
+        </form>
+    </section>
+    <!-- FIM DA SESSÃO DE FORMULÁRIO DE CADASTRO DE USUÁRIO -->
+
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        $(".btn-submit").on('click', validacao);
+
+        function validacao() {
+
+            var formcadastro = document.getElementById("form");
+            var senha = formcadastro.senha;
+            var cpf = formcadastro.cpf;
+            var email = formcadastro.email;
+            var nome = formcadastro.nome
+            var cont = 0;
+
+
+
+            $(".group-input span.error").remove();
+
+
+
+            //validar senha e confirmar senha
+            if (/^(((?=.*\d)(?=.*[a-z])(?=.*[^a-zA-Z0-9])).{6,32})$/i.test(senha.value)) {
+                $(".error").removeClass("error");
+                cont += 1;
+
+            } else {
+
+                $("input[name='senha']").after("<span class='error'>A Senha precisa ter no minimo 6 digitos, com letras, números e caracteres especiais.</span>")
+            }
+
+
+
+
+            //validar email
+            if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i.test(email.value)) {
+                $("input[name='email']").addClass("input-error");
+                $("input[name='email']").after("<span class='error'>Informe um E-mail válido.</span>");
+            } else {
+                $("input[name='email']").removeClass("input-error");
+                cont += 1;
+            }
+
+
+
+            //validar nome
+            if (!nome.value.match(/[^a-z\s]/ig)) {
+                if (/^([\w]{2,})([\s]{1})([\w]{2,})/ig.test(nome.value)) {
+                    $("input[name='nome']").removeClass("input-error");
+                    cont += 1;
+                } else {
+                    $("input[name='nome']").addClass("input-error");
+                    $("input[name='nome']").after("<span class='error'>Informe o nome completo.</span>");
+                }
+            } else {
+                $("input[name='nome']").addClass("input-error");
+                $("input[name='nome']").after("<span class='error'>O nome não pode ter número ou caracteres especiais</span>");
+            }
+
+
+
+            //verifica se ta tudo validado pra subimeter
+
+            if (cont == 3) {
+                cpf.value = cpf.value.replace(/^([\d]{3})\.([\d]{3})\.([\d]{3})\-([\d]{2})$/, "$1$2$3$4");
+                $("#form").submit();
+
+            }
+
+
+
+        };
+
+
+        var formcadastro = document.getElementById("form");
+        var cpf = formcadastro.cpf;
+
+        cpf.oninput = formatarCPF;
+        cpf.onblur = formatarCPFBlur;
+
+
+
+        function formatarCPF() {
+
+          var auxDt;
+          var auxDt2 = "";
+
+            if (!cpf.value.match(/[^0-9\.\-]/ig)) {
+                cpf.value = cpf.value.replace(/^([\d]{3})([\d]{1,2})$/, "$1.$2");
+                auxDt2 = cpf.value;
+                if (cpf.value.length > 6) {
+                    cpf.value = cpf.value.replace(/^([\d]{3})\.([\d]{3})([\d]{1})$/, "$1.$2.$3");
+                    auxDt2 = cpf.value;
+                }
+                if (cpf.value.length > 11) {
+                    cpf.value = cpf.value.replace(/^([\d]{3})\.([\d]{3})\.([\d]{3})([\d]{1})$/, "$1.$2.$3-$4");
+                    auxDt2 = cpf.value;
+                }
+                if (/^([\d]{3})\.([\d]{3})\.([\d]{3})\-([\d]{2})$/ig.test(cpf.value)) {
+                    auxDt = cpf.value;
+                }
+                if (cpf.value.length > 14) {
+                    cpf.value = auxDt;
+                }
+            } else {
+                if (cpf.value.length <= 14) {
+                    cpf.value = auxDt2;
+                } else {
+                    cpf.value = auxDt;
+                }
+            }
+        };
+
+
+        function formatarCPFBlur(){
+          cpf.value = cpf.value.replace(/^([\d]{3})([\d]{3})([\d]{3})([\d]{1,2})$/, "$1.$2.$3-$4");
+        }
+    </script>
+
+</body>
+
+</html>

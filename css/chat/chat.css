@@ -1,0 +1,94 @@
+
+section.form-style {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-self: center;
+    position: absolute;
+    top: 120px;
+    left: 150px;
+    width: calc(100% - 150px);
+    height: 100%;
+}
+
+section.form-style>.title {
+    margin-bottom: 0;
+}
+
+div.info-mensagem {
+  width: 95%;
+  height: 40px;
+  padding:0 20px;
+  background-color:  #2d1008;
+  margin-top: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+div.info-mensagem > h3{
+  color: #9ED22F;
+  line-height: 40px;
+}
+
+div.scroll {
+    overflow-y: auto;
+    width: 95%;
+    height: 54%;
+    margin-bottom: 5px;
+    background-color: #fff;
+    border: 4px solid #2d1008;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+div.mensagens{
+  height: 100%;
+  width: 100%;
+  padding: 20px 30px;
+  margin-bottom: 8px;
+  background-color: #fff;
+}
+
+div.enviar-mensagem{
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  height: 30px;
+  width: 90%;
+  border: 1px solid #2d1008;
+  border-radius: 3px;
+}
+div.enviar-mensagem > input {
+  width: 85%;
+  height: 28px;
+}
+
+div.enviar-mensagem > button {
+  width: 15%;
+  height: 28px;
+  background-color: #2d1008;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 790px) {
+    section.form-style {
+        width: calc(100% - 60px);
+        left: 60px;
+        top: 180px;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    div.title input {
+        width: 70%;
+    }
+}
